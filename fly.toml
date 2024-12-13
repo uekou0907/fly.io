@@ -1,20 +1,17 @@
-app = 'fly-io-summer-dew-1267'
+app = 'fly-io-wild-fire-1232'
+primary_region = 'nrt'
 
 [build]
-  image = "Dockerfile.dockerfile"
+  dockerfile = 'Dockerfile'
 
 [env]
-  PORT = "8080"
+  PORT = '12345'
 
 [[services]]
-  internal_port = 8080
-  protocol = "udp"  # UDP通信に変更
+  protocol = 'udp'
+  internal_port = 12345   # コンテナ内でリッスンするポート
+  external_port = 12345   # 外部に公開するポート
 
   [[services.ports]]
-    handlers = ["udp"]  # UDP用に設定
-    port = 12345         # 使用するポートを指定（例：12345）
-
-[[vm]]
-  memory = "1gb"
-  cpu_kind = "shared"
-  cpus = 1
+    port = 12345           # 外部公開用のポート番号
+    handlers = ['udp']     # UDPプロトコルを指定
