@@ -1,4 +1,4 @@
-app = 'my-fly-app'
+app = 'fly-io-summer-dew-1267'
 
 [build]
   image = "Dockerfile"
