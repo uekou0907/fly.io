@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 12345/udp  # UDP通信に使用するポートを指定 (例: 12345)
 
 # アプリケーションを起動するコマンドを指定
-CMD ["python", "app.py"]
+CMD ["python", "server.py"]
