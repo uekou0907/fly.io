@@ -1,7 +1,7 @@
 app = 'fly-io-summer-dew-1267'
 
 [build]
-  image = "Dockerfile"
+  image = "Dockerfile.dockerfile"
 
 [env]
   PORT = "8080"
