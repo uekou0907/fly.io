@@ -8,10 +8,8 @@ primary_region = 'nrt'
   PORT = '12345'
 
 [[services]]
+  internal_port = 12345
   protocol = 'udp'
-  internal_port = 12345   # コンテナ内でリッスンするポート
-  external_port = 12345   # 外部に公開するポート
 
   [[services.ports]]
-    port = 12345           # 外部公開用のポート番号
-    handlers = ['udp']     # UDPプロトコルを指定
+    port = 12345

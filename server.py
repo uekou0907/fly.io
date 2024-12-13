@@ -1,14 +1,12 @@
+import os
 import socket
 import pickle
 
-# Fly.ioで使用するホストとポート
 host = "0.0.0.0"
-port = 12345
+port = int(os.environ.get('PORT', 12345))
 
-# ソケットの作成
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((host, port))
-
 print(f"Server is running on {host}:{port}")
 
 while True:
