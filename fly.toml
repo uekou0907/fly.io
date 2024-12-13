@@ -1,20 +1,20 @@
-# fly.toml app configuration file generated for fly-io-summer-dew-1267 on 2024-12-13T08:59:26+09:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+app = 'my-fly-app'
 
-app = 'fly-io-summer-dew-1267'
-primary_region = 'nrt'
+[build]
+  image = "Dockerfile"
 
-[http_service]
+[env]
+  PORT = "8080"
+
+[[services]]
   internal_port = 8080
-  force_https = true
-  auto_stop_machines = 'stop'
-  auto_start_machines = true
-  min_machines_running = 0
-  processes = ['app']
+  protocol = "udp"  # UDP通信に変更
+
+  [[services.ports]]
+    handlers = ["udp"]  # UDP用に設定
+    port = 12345         # 使用するポートを指定（例：12345）
 
 [[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
+  memory = "1gb"
+  cpu_kind = "shared"
   cpus = 1

@@ -1,11 +1,18 @@
-# ベースイメージ
-FROM python:3.10-slim
+# ベースイメージを指定
+FROM python:3.9-slim
 
-# 作業ディレクトリ
+# 作業ディレクトリを作成
 WORKDIR /app
 
-# 必要なファイルをコピー
-COPY server.py /app/
+# アプリケーションの依存関係をインストール
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Pythonでサーバを実行
-CMD ["python", "server.py"]
+# アプリケーションコードをコピー
+COPY . .
+
+# 使用するポート（UDP）を開放
+EXPOSE 12345/udp  # UDP通信に使用するポートを指定 (例: 12345)
+
+# アプリケーションを起動するコマンドを指定
+CMD ["python", "app.py"]
