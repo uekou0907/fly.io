@@ -5,11 +5,11 @@ primary_region = 'nrt'
   dockerfile = 'Dockerfile'
 
 [env]
-  PORT = '12345'
+  PORT = '80'
 
 [[services]]
-  internal_port = 12345
+  internal_port = 80
   protocol = 'udp'
 
   [[services.ports]]
-    port = 12345
+    port = 80

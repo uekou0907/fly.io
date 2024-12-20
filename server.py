@@ -2,8 +2,8 @@ import os
 import socket
 import pickle
 
-host = "0.0.0.0"
-port = int(os.environ.get('PORT', 12345))
+host = "66.241.125.159"
+port = int(os.environ.get('PORT', 80))
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((host, port))
