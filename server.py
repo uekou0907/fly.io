@@ -23,7 +23,9 @@ print(f"Server is running on {host}:{port}")
 try:
     while True:
         # クライアントからの接続を受け付ける
+        print("b")
         conn, addr = sock.accept()
+        print("c")
         print(f"Connected by {addr}")
 
         try:
