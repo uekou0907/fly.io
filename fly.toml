@@ -9,7 +9,8 @@ primary_region = 'nrt'
 
 [[services]]
   internal_port = 80
-  protocol = 'udp'
+  protocol = 'tcp'
 
   [[services.ports]]
     port = 80
+    handlers = ["http"]

@@ -9,13 +9,22 @@ class GameObject:
 # サーバのホストとポート
 server_address = ('66.241.125.159', 80)
 
-# ソケットの作成
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+# ソケットの作成（TCP）
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# GameObjectを作成
-game_object = GameObject("Player1", (100, 200))
+try:
+    # サーバーに接続
+    sock.connect(server_address)
+    print(f"Connected to server at {server_address}")
 
-# オブジェクトをシリアライズして送信
-data = pickle.dumps(game_object)
-sock.sendto(data, server_address)
-sock.close()
+    # GameObjectを作成
+    game_object = GameObject("Player1", (100, 200))
+
+    # オブジェクトをシリアライズして送信
+    data = pickle.dumps(game_object)
+    sock.sendall(data)
+    print("Data sent successfully")
+
+finally:
+    # ソケットを閉じる
+    sock.close()
