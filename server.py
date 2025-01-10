@@ -1,7 +1,9 @@
 import os
 import socket
 import pickle
+import logging
 
+logging.basicConfig(level=logging.INFO)
 print("aa")
 # ホストとポートの設定
 host = ""  # 空文字を指定して、全てのインターフェースでリッスンする
@@ -11,6 +13,7 @@ port = int(os.environ.get('PORT', 80))  # Fly.ioの環境で自動的に設定�
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((host, port))  # hostを空文字にすることで全てのインターフェースにバインド
 sock.listen(5)  # 最大接続待ち数を設定
+logging.info("Server started successfully")
 print(f"Server is running on {host}:{port}")
 
 while True:
