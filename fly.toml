@@ -17,4 +17,10 @@ primary_region = 'nrt'
 
 [services.http_checks]
   grace_period = "1m"
-  interval = "0s"  # ヘルスチェック無効化
+  interval = "24h"  # ヘルスチェック無効化
+[experimental]
+  auto_rollback = false
+
+[deploy]
+  release_command = ""
+  strategy = "immediate"  # 必要なら rolling に変更
