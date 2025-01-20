@@ -11,6 +11,10 @@ primary_region = 'nrt'
   internal_port = 80
   protocol = 'tcp'
 
+  [services.http_checks]
+    grace_period = "1m"
+    interval = "0"  # ヘルスチェック無効化
+
   [[services.ports]]
     port = 80
     handlers = ["http"]

@@ -7,7 +7,7 @@ server_address = ('66.241.125.159', 80)
 
 # ソケットの作成（TCP）
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.bind(server_address)
+#sock.bind(server_address)
 
 # サーバーをリッスン状態にする
 sock.listen(5)  # 最大接続待ち数を指定
